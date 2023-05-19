@@ -21,8 +21,8 @@
 				<td>{{x.NAME}}</td>
 				<td>{{x.AGE}}</td>
 				<td>{{x.CITY}}</td>
-				<td></td>
-				<td></td>
+				<td><a href="{{url_for('editUser',id=x.ID)}}">Edit</a></td>
+				<td><a href="">Delete</td>
 				
 		  {% endfor %}
 		  
