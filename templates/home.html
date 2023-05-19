@@ -22,8 +22,8 @@
 				<td>{{x.AGE}}</td>
 				<td>{{x.CITY}}</td>
 				<td><a href="{{url_for('editUser',id=x.ID)}}">Edit</a></td>
-				<td><a href="">Delete</td>
-				
+				<td><a onclick="return confirm('Are you sure to delete?');" href="{{url_for('deleteUser',id=x.ID)}}">Delete</a></td>
+			 </tr>	
 		  {% endfor %}
 		  
 		  

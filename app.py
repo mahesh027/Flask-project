@@ -53,7 +53,17 @@ def editUser(id):
     con.execute(sql,[id])
     res=con.fetchone()
     return render_template("editUsers.html",datas=res)
-  
+
+#Delete User 
+@app.route("/deleteUser/<string:id>",methods=['GET','POST']) 
+def deleteUser(id):
+    con= mysql.connection.cursor()
+    sql="delete from users where ID=%s"
+    con.execute(sql,id) 
+    mysql.connection.commit()
+    con.close()
+    return redirect(url_for("home"))
+     
   
 if(__name__== '__main__'):
     app.run(debug=True)
