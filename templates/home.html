@@ -4,6 +4,29 @@
   </head>
   <body>
      <h1>User Management Using Python Flask & MYSQL </h1>
+	 <table>
+	      <tr>
+		   <th>ID</th>
+		   <th>NAME</th>
+		   <th>AGE</th>
+		   <th>CITY</th>
+		   <th>EDIT</th>
+		   <th>DELETE</th>
+		  </tr>
+		  {% for x in datas %}
+		     <tr>
+			    <td>{{x.ID}}</td>
+				<td>{{x.NAME}}</td>
+				<td>{{x.AGE}}</td>
+				<td>{{x.CITY}}</td>
+				<td></td>
+				<td></td>
+				
+		  {% endfor %}
+		  
+		  
+		  
+	 </table>
 	</body>
   
 
