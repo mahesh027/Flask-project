@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for,request,redirect
+from flask import Flask,render_template,url_for,request,redirect,flash
 from flask_mysqldb import MySQL
 app=Flask(__name__)
 #Mysql connection
@@ -31,6 +31,7 @@ def addUsers():
        con.execute(sql,[name,city,age]) 
        mysql.connection.commit()
        con.close()
+       flash("user detail added")
        return redirect(url_for("home"))
     return render_template("addUsers.html")
 
@@ -46,6 +47,7 @@ def editUser(id):
         con.execute(sql,[name,city,age,id])
         mysql.connection.commit()
         con.close()
+        flash("user detail updated")
         return redirect(url_for("home"))
         
        
@@ -62,9 +64,11 @@ def deleteUser(id):
     con.execute(sql,id) 
     mysql.connection.commit()
     con.close()
+    flash("user detail deleted")
     return redirect(url_for("home"))
      
   
 if(__name__== '__main__'):
+    app.secret_key="abc123"
     app.run(debug=True)
   
